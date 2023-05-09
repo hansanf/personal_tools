@@ -16,3 +16,9 @@
 [re_fetch_name_fps.py](re_fetch_name_fps)   
   用正则表达式方式对日志中的字段进行提取，提取耗时、fps等   
 
+[jtop_logger.py](python/jtop_logger.py)  
+  jetson stats(jtop) 的官方例子，记录整个平台的资源情况   
+
+[jtop_ploter.py](python/jtop_ploter.py)  
+  将 jtop_logger.py 所保存的 log.csv 内容画成曲线图   
+
