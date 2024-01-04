@@ -1,0 +1,27 @@
+#!/usr/bin/expect  
+set ip [lindex $argv 0]  
+set user [lindex $argv 1]  
+set passwd [lindex $argv 2]  
+set port [lindex $argv 3]  
+# set cmd [lindex $argv 3] #批量操作服务器时在服务器上执行的命令
+spawn echo argc: $argc
+spawn echo ip: $ip
+spawn echo user: $user
+spawn echo passwd: $passwd
+spawn echo port: $port
+if { $argc != 4 } {  
+  puts "Usage: expect login.exp ip user passwd port"  
+  exit 1  
+}  
+set timeout 30  
+spawn ssh $user@$ip -p $port  
+
+expect {      
+    "(yes/no)" {send "yes\r"; exp_continue}  
+    "password:" {send "$passwd\r"}  
+}  
+#expect "$user@*"  {send "$cmd\r"}  
+#expect "$user@*"  {send "exit\r"}  #批量操作服务器的情况下需要自动登录，而不是通过interact 进行交互
+#spawn echo "FGQ"
+interact #执行完成后保持交互状态，把控制权交给控制台
+expect eof  

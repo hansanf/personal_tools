@@ -1,0 +1,5 @@
+host_name ip user passwd port
+test_server 192.168.1.100 hans 123456 22
+nvidia_12 10.31.1.12 nvidia nvidia 22
+nvidia_71 10.31.1.71 nvidia nvidia 22
+docker_xavier 10.31.5.6 guoqing.feng guoqing.feng 923
